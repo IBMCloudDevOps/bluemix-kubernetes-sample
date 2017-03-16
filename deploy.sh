@@ -3,7 +3,7 @@
 echo "Deploy pods"
 
 echo "bx login -a $CF_TARGET_URL"
-bx login -a "$CF_TARGET_URL" -u "$BLUEMIX_USER" -p "$BLUEMIX_PASSWORD"
+bx login -a "$CF_TARGET_URL" -u "$BLUEMIX_USER" -p "$BLUEMIX_PASSWORD" -c "$BLUEMIX_ACCOUNT"
 
 # Init container clusters
 #echo "bx cs init"
