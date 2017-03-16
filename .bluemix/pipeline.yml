@@ -28,6 +28,8 @@ stages:
     type: secure
   - name: BLUEMIX_PASSWORD
     type: secure
+  - name: BLUEMIX_ACCOUNT
+    type: secure
   jobs:
   - name: Deploy
     type: deployer
