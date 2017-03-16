@@ -11,8 +11,6 @@ chmod +x /tmp/Bluemix_CLI/bin/*
 
 export PATH="/tmp/Bluemix_CLI/bin:$PATH"
 
-/tmp/Bluemix_CLI/bin/bx update
-
 # Install Armada CS plugin
 echo "Install the Bluemix container-service plugin"
 #bx plugin install bin/container-service-linux-amd64
