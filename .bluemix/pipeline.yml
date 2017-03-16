@@ -38,6 +38,7 @@ stages:
       application: Pipeline
     script: |
       #!/bin/bash
+      . ./install_bx.sh
       ./deploy.sh
 hooks:
 - enabled: true
