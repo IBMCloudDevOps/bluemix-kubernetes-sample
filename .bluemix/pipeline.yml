@@ -1,0 +1,47 @@
+---
+stages:
+- name: BUILD
+  inputs:
+  - url: https://github.com/IBMCloudDevOps/bluemix-kubernetes-sample.git
+    type: git
+    branch: master
+    dir_name: null
+  triggers:
+  - type: commit
+  jobs:
+  - name: Build
+    type: builder
+    artifact_dir: ''
+    build_type: shell
+    script: |-
+      #!/bin/bash
+      bash -n *.sh
+- name: DEPLOY
+  inputs:
+  - type: job
+    stage: BUILD
+    job: Build
+    dir_name: null
+  triggers:
+  - type: stage
+  properties:
+  - name: BLUEMIX_USER
+    type: secure
+  - name: BLUEMIX_PASSWORD
+    type: secure
+  jobs:
+  - name: Deploy
+    type: deployer
+    target:
+      region_id: ibm:ys1:us-south
+      organization: rak@us.ibm.com
+      space: dev
+      application: kubernetes-sample
+    script: |
+      #!/bin/bash
+      ./deploy.sh
+hooks:
+- enabled: true
+  label: null
+  ssl_enabled: false
+  url: https://devops-api-integration.stage1.ng.bluemix.net/v1/messaging/webhook/publish
