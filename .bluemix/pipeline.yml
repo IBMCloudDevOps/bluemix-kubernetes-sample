@@ -2,10 +2,9 @@
 stages:
 - name: BUILD
   inputs:
-  - url: https://github.com/IBMCloudDevOps/bluemix-kubernetes-sample.git
-    type: git
+  - type: git
     branch: master
-    dir_name: null
+    service: ${SAMPLE_REPO}
   triggers:
   - type: commit
   jobs:
@@ -33,10 +32,10 @@ stages:
   - name: Deploy
     type: deployer
     target:
-      region_id: ibm:ys1:us-south
-      organization: rak@us.ibm.com
-      space: dev
-      application: kubernetes-sample
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
+      application: Pipeline
     script: |
       #!/bin/bash
       ./deploy.sh
