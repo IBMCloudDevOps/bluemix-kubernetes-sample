@@ -30,11 +30,6 @@ stages:
     type: secure
   - name: BLUEMIX_ACCOUNT
     type: secure
-  - name: BLUEMIX_ORG
-    type: text
-  - name: BLUEMIX_SPACE
-    type: text
-    default: dev
   jobs:
   - name: Deploy
     type: deployer
