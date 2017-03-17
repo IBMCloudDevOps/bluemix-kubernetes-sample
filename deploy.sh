@@ -6,7 +6,7 @@ IP_ADDR=$(bx cs workers $CLUSTER_NAME | grep deployed | awk '{ print $2 }')
 echo -e "\tConfiguring vars"
 $(bx cs cluster-config $CLUSTER_NAME | grep export)
 
-echo -e "\tDownlodaing guestbook yml"
+echo -e "\tDownloading guestbook yml"
 curl --silent "https://raw.githubusercontent.com/kubernetes/kubernetes/master/examples/guestbook/all-in-one/guestbook-all-in-one.yaml" > guestbook.yml
 sed -i '130i\ \ type: NodePort' guestbook.yml #For OSX: brew install gnu-sed; replace sed references with gsed
 
