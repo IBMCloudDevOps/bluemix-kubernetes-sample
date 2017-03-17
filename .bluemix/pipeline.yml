@@ -32,7 +32,7 @@ stages:
     type: secure
   - name: CLUSTER_NAME
     type: text
-    default: Kate    
+    default: Kate
   jobs:
   - name: Deploy
     type: deployer
@@ -44,6 +44,7 @@ stages:
     script: |
       #!/bin/bash
       . ./install_bx.sh
+      ./bx_login.sh
       ./deploy.sh
 hooks:
 - enabled: true
