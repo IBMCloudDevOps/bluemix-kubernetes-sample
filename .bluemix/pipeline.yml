@@ -30,6 +30,9 @@ stages:
     type: secure
   - name: BLUEMIX_ACCOUNT
     type: secure
+  - name: CLUSTER_NAME
+    type: text
+    default: Kate    
   jobs:
   - name: Deploy
     type: deployer
