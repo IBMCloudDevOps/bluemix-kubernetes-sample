@@ -13,7 +13,7 @@ export PATH="/tmp/Bluemix_CLI/bin:$PATH"
 
 # Install Armada CS plugin
 echo "Install the Bluemix container-service plugin"
-#bx plugin install bin/container-service-linux-amd64
+bx plugin install container-service -r Bluemix
 
 echo "Install kubectl"
 wget --quiet --output-document=/tmp/Bluemix_CLI/bin/kubectl  https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
