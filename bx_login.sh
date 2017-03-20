@@ -1,9 +1,9 @@
 #!/bin/sh
 
-if [-z $CF_ORG ]; then
+if [ -z $CF_ORG ]; then
   CF_ORG="$BLUEMIX_ORG"
 fi
-if [-z $CF_SPACE ]; then
+if [ -z $CF_SPACE ]; then
   CF_SPACE="$BLUEMIX_SPACE"
 fi
 
