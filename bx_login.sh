@@ -1,5 +1,13 @@
 #!/bin/sh
 
+if [-z $CF_ORG ]; then
+  CF_ORG="$BLUEMIX_ORG"
+fi
+if [-z $CF_SPACE ]; then
+  CF_SPACE="$BLUEMIX_SPACE"
+fi
+
+
 if [ -z "$BLUEMIX_USER" ] || [ -z "$BLUEMIX_PASSWORD" ] || [ -z "$BLUEMIX_ACCOUNT" ]; then
   echo "Define all required environment variables and rerun the stage."
   exit 1
@@ -15,8 +23,8 @@ fi
 
 # Init container clusters
 echo "bx cs init"
-bx cs init -u "$BLUEMIX_USER" -p "$BLUEMIX_PASSWORD"
+bx cs init
 if [ $? -ne 0 ]; then
-  echo "Failed to authenticate to Bluemix Container Service"
+  echo "Failed to initialize to Bluemix Container Service"
   exit 1
 fi
