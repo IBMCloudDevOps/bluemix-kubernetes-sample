@@ -4,7 +4,12 @@ echo "Create Guestbook"
 IP_ADDR=$(bx cs workers $CLUSTER_NAME | grep deployed | awk '{ print $2 }')
 
 echo -e "\tConfiguring vars"
-$(bx cs cluster-config $CLUSTER_NAME | grep export)
+exp=$(bx cs cluster-config $CLUSTER_NAME | grep export)
+if [ $? -ne 0 ]; then
+  echo "Cluster $CLUSTER_NAME not created or not ready."
+  exit 1
+fi
+eval "$exp"
 
 echo -e "\tDownloading guestbook yml"
 curl --silent "https://raw.githubusercontent.com/kubernetes/kubernetes/master/examples/guestbook/all-in-one/guestbook-all-in-one.yaml" > guestbook.yml
