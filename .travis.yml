@@ -10,6 +10,6 @@ script: bash -n *.sh
 deploy:
   - provider: script
     skip_cleanup: true
-    script: deploy_rollup.sh
+    script: ./deploy_rollup.sh
     on:
       branch: travis
