@@ -1,0 +1,11 @@
+language: script
+
+
+script: bash -n *.sh
+
+
+deploy:
+  - provider: script
+    script: deploy_rollup.sh
+    on:
+      branch: travis
