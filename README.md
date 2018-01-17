@@ -7,8 +7,8 @@ The Bluemix Kubernetes sample demonstrates how to set up your environment to dep
   - **BLUEMIX_PASSWORD** - Your Bluemix password.
   - **CLUSTER_NAME** - The name of your Container Service cluster.
   - **BLUEMIX_ACCOUNT** - The ID of the Bluemix account where you created the cluster. Retrieve it with ``` bx iam accounts```.
-  - **BLUEMIX_ORG** - Soecify your Bluemix organization when building with Travis. Not required when building with DevOps Services pipeline.
-  - **BLUEMIX_SPACE** - Soecify your Bluemix space when building with Travis. Not required when building with DevOps Services pipeline.
+  - **BLUEMIX_ORG** - Specify your Bluemix organization when building with Travis. Not required when building with DevOps Services pipeline.
+  - **BLUEMIX_SPACE** - Specify your Bluemix space when building with Travis. Not required when building with DevOps Services pipeline.
 - ```deploy.sh``` - Downloads the Guestbook Kubernetes configuration, and deploys it to the previously created cluster.
 
 ## Create an IBM DevOps Services toolchain
